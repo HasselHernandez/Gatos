@@ -3,17 +3,18 @@ import db from "../firebase.js";
 
 export const registrarGato = async (req, res) => {
   try {
-    const { nombre, edad, peso, raza } = req.body;
+    const { nombre, propietario, edad, peso, raza } = req.body;
 
-    if (!nombre || !edad || !peso || !raza) {
+    if (!nombre || !propietario || !edad || !peso || !raza) {
       return res.status(400).json({
-        mensaje: "Todos los campos son obligatorios: nombre, edad, peso y raza.",
+        mensaje: "Todos los campos son obligatorios: nombre, propietario, edad, peso y raza.",
       });
     }
 
     // Si la colección "gatos" no existe, Firestore la crea automáticamente
     const docRef = await db.collection("gatos").add({
       nombre,
+      propietario,
       edad: Number(edad),
       peso: Number(peso),
       raza,
@@ -21,7 +22,7 @@ export const registrarGato = async (req, res) => {
     });
 
     const mensaje = `¡Gato registrado con éxito en Firebase! 
-ID: ${docRef.id} | Nombre: ${nombre} | Edad: ${edad} años | Peso: ${peso} kg | Raza: ${raza}`;
+ID: ${docRef.id} | Nombre: ${nombre} | Propietario: ${propietario} | Edad: ${edad} años | Peso: ${peso} kg | Raza: ${raza}`;
 
     res.json({ mensaje });
   } catch (error) {
