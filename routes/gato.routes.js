@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { registrarGato } from "../controllers/gato.controllers.js";
+import { registrarGato } from "../controllers/gato.controller.js";
 
 const router = express.Router();
 
