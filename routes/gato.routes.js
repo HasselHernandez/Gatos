@@ -25,4 +25,7 @@ router.put(
 
 router.get("/gatos", obtenerGatos);
 
+router.delete("/gato/:id", eliminarGato);
+
+
 export default router;
