@@ -2,7 +2,14 @@ import express from "express";
 import multer from "multer";
 import { registrarGato, obtenerGatos, actualizarGato, eliminarGato, buscarGatos } from "../controllers/gato.controller.js";
 
+import { capturarInfoSolicitud } from "../middlewares/auditoria.js";
+
+
+
 const router = express.Router();
+
+// Debajo de const router = express.Router();
+router.use(capturarInfoSolicitud);   // aplica a todas las rutas de este router
 
 const upload = multer({
   storage: multer.memoryStorage(),
