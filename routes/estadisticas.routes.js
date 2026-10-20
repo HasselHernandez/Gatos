@@ -20,7 +20,7 @@ router.get("/estadisticas/excel", exportarEstadisticasExcel);
 router.get("/estadisticas/pdf", exportarEstadisticasPDF);
 
 // Descarga el CSV de gatos
-router.get("/gatos/csv", exportarGatosCSV);
+router.get("/gatos/estadisticas/csv", exportarGatosCSV);
 
 
 
