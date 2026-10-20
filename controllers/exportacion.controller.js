@@ -201,8 +201,6 @@ properties: { tabColor: { argb: "FF7030A0" } },
   }
 };
 
-import db from "../firebase.js";
-
 export const exportarEstadisticasPDF = async (req, res) => {
   try {
     const stats = await calcularEstadisticas();
